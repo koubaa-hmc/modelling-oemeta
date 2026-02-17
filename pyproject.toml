@@ -15,7 +15,7 @@ requires-python = ">=3.9,<4.0"
 dynamic = ["version"]
 
 dependencies = [
-  "linkml-runtime >=1.9.4",
+  "schema-automator>=0.5.3",
 ]
 
 [dependency-groups]
