@@ -1,17 +1,19 @@
 id: https://openenergyplatform.org/metadata/v20
 name: oemetadata_v20
+imports:
+- linkml:types
 prefixes:
   linkml: https://w3id.org/linkml/
   schema: http://schema.org/
   oeo: http://openenergyontology.org/ontology/
   oep: https://openenergyplatform.org/metadata/v20/
+  xsd: http://www.w3.org/2001/XMLSchema#
 default_prefix: oep
 default_range: string
 classes:
   Subject:
     slots:
     - subject_name
-    - '@id'
   Embargoperiod:
     slots:
     - start
@@ -32,13 +34,11 @@ classes:
   Location:
     slots:
     - address
-    - '@id'
     - latitude
     - longitude
   Extent:
     slots:
     - extent_name
-    - '@id'
     - resolutionValue
     - resolutionUnit
     - boundingBox
@@ -95,12 +95,10 @@ classes:
   Isabout:
     slots:
     - isabout_name
-    - '@id'
   Valuereference:
     slots:
     - value
     - valuereference_name
-    - '@id'
   Field:
     slots:
     - field_name
@@ -133,7 +131,6 @@ classes:
     - badge
   Resource:
     slots:
-    - '@id'
     - resource_name
     - topics
     - title
@@ -167,17 +164,13 @@ classes:
     - metadataLicense
   Dataset:
     slots:
-    - '@context'
     - dataset_name
     - title
     - dataset_description
-    - '@id'
     - resources
     - metaMetadata
     tree_root: true
 slots:
-  '@context':
-    description: Explanation of metadata keys in ontology terms.
   dataset_name:
     description: A filename or database conform dataset name.
   title:
@@ -186,8 +179,6 @@ slots:
   dataset_description:
     description: A free text description of the dataset.
     slot_uri: schema:description
-  '@id':
-    description: The path of the ontology term (IRI) in the column.
   resource_name:
     description: A filename or database conform table name.
   topics:
@@ -196,7 +187,6 @@ slots:
     multivalued: true
   path:
     description: A link or path to the license text.
-    slot_uri: schema:contentUrl
   resource_description:
     description: A description of the table. It should be usable as summary information
       for the table that is described by the metadata.
@@ -287,7 +277,6 @@ slots:
     range: Extent
   spatial:
     description: An object that describes the spatial context of the data.
-    slot_uri: schema:spatialCoverage
     range: Spatial
   referenceDate:
     description: A base year, month or day. The time for which the data should be
@@ -306,7 +295,6 @@ slots:
     description: An object with the time period covered in the data. Temporal information
       should contain a "referenceDate" or the keys that describe a time series, or
       both.
-    slot_uri: schema:temporalCoverage
     range: Temporal
   authors:
     description: An array of the full names of the authors of the source material.
@@ -367,7 +355,6 @@ slots:
   format:
     description: A file extension format. Possible options are 'csv', 'xlsx', 'json',
       'PostgreSQL', 'SQLite' and other standard file extensions.
-    slot_uri: schema:encodingFormat
   encoding:
     description: Specifies the character encoding of the resource's data file. The
       default is 'UTF-8'. The values should be one of the 'Preferred MIME Names'.
@@ -455,3 +442,4 @@ slots:
     description: An object that describes the metadata themselves, their format, version
       and license.
     range: Metametadata
+enums: {}
