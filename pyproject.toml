@@ -15,6 +15,7 @@ requires-python = ">=3.9,<4.0"
 dynamic = ["version"]
 
 dependencies = [
+  "deepdiff>=8.6.1",
   "schema-automator>=0.5.3",
 ]
 
