@@ -8,7 +8,7 @@ OWL = Namespace("http://www.w3.org/2002/07/owl#")
 
 
 def purify_vocabulary(input_path, output_path):
-    print(f"🧹 Purifying and re-typing vocabulary: {input_path}...")
+    print(f"Purifying and re-typing vocabulary: {input_path}...")
 
     # 1. Load the existing graph
     g = Graph()
@@ -76,8 +76,8 @@ def purify_vocabulary(input_path, output_path):
     with open(output_path, "w") as f:
         json.dump(final_output, f, indent=4)
 
-    print(f"✨ Purification complete. Generated oep: Classes and Properties.")
-    print(f"📁 Saved to: {output_path}")
+    print(f"Purification complete. Generated oep: Classes and Properties.")
+    print(f"Saved to: {output_path}")
 
 
 if __name__ == "__main__":
