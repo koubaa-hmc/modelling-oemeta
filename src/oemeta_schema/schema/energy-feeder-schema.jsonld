@@ -1,0 +1,63 @@
+{
+  "@context": {
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "schema": "https://schema.org/",
+    "oeo": "http://openenergy-platform.org/ontology/oeo/",
+    "om": "http://www.ontology-of-units-of-measure.org/resource/om-2/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "domain": { "@id": "rdfs:domain", "@type": "@id" },
+    "range": { "@id": "rdfs:range", "@type": "@id" }
+  },
+  "@graph": [
+    {
+      "@id": "oeo:EnergyDataset",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Energy Dataset",
+      "rdfs:comment": "A specialized dataset containing power systems data.",
+      "rdfs:subClassOf": "schema:Dataset"
+    },
+    {
+      "@id": "oeo:PowerFeeder",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Power Feeder",
+      "rdfs:comment": "A specific line in a low-voltage grid (Abzweig)."
+    },
+    {
+      "@id": "oeo:hasVoltageLevel",
+      "@type": "rdf:Property",
+      "rdfs:label": "Voltage Level",
+      "domain": "oeo:EnergyDataset",
+      "range": "xsd:string"
+    },
+    {
+      "@id": "oeo:hasTemporalResolution",
+      "@type": "rdf:Property",
+      "rdfs:label": "Temporal Resolution",
+      "domain": "oeo:EnergyDataset",
+      "range": "xsd:duration"
+    },
+    {
+      "@id": "oeo:feederCount",
+      "@type": "rdf:Property",
+      "rdfs:label": "Number of Feeders",
+      "domain": "oeo:EnergyDataset",
+      "range": "xsd:integer"
+    },
+    {
+      "@id": "oeo:measuredProperty",
+      "@type": "rdf:Property",
+      "rdfs:label": "Measured Property",
+      "domain": "oeo:PowerFeeder",
+      "range": "om:Unit"
+    },
+    {
+      "@id": "oeo:gridContext",
+      "@type": "rdf:Property",
+      "rdfs:label": "Grid Context",
+      "rdfs:comment": "Links the dataset to the specific German grid metadata.",
+      "domain": "oeo:EnergyDataset",
+      "range": "schema:Place"
+    }
+  ]
+}
